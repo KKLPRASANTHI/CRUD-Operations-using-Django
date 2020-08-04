@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>::Data from DataBase::</title>
+	<style>
+		.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 15px;
+  font-family: Arial;
+  color: #080108;
+  font-size: 17px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+table {
+  border-collapse: collapse;
+  width: 40%;
+  
+}
+th{
+	background-color:#f2f2f2 
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+</head>
+<body>
+	<center>
+		
+<hr style="size: 10;color: grey">
+
+<a class="btn" href="{% url 'store' %}">Add New Employee</a>
+<hr style="size: 10;color: grey">
+<table >
+	<tr>
+		<thead>
+			<th>Sno</th>
+			<th>Empid</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Salary</th>
+			<th>Desig</th>
+			<th>Phone Number</th>
+			<th>Email</th>
+			<th>Department</th>
+			<th>Edit/Delete Details</th>
+		</thead>
+	</tr>
+	{% for i in info %}
+	<tr>
+		<td>{{forloop.counter}}</td>
+		<td>{{i.empid}}</td>
+		<td>{{i.name}}</td>
+		<td>{{i.age}}</td>
+		<td>{{i.salary}}</td>
+		<td>{{i.desig}}</td>
+		<td>{{i.phno}}</td>
+		<td>{{i.email}}</td>
+		<td>{{i.dept}}</td>
+		<td><button><a href="{% url 'delete' i.name %}" style="text-decoration: none;color:black;font-weight: bold">Delete</a></button></td>
+		<td><button><a href="{% url 'update' i.empid %}" style="text-decoration: none;color:black;font-weight: bold">Edit</a></button></td>
+	</tr>
+	{% endfor %}
+</table>
+<!-- <button class="btn"><a href="{% url 'store' %}" style="text-decoration: none;">Add your data</a></button> -->
+</center>
+</body>
+</html>
+<!--{{info}}
+{% for i in info %}
+	<h1>{{i.name}}</h1>
+	<h1>{{i.age}}</h1>
+	<h1>{{i.salary}}</h1>
+	<h1>{{i.desig}}</h1>
+	<h1>{{i.email}}</h1>
+	<h1>{{i.phno}}</h1>
+{% endfor %}-->

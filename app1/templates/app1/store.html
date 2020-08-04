@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>::Store::</title>
+	<!--BS4 CSS LINK-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<!-- JS LINK-->
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+	<marquee style="color: powderblue;font-size: 30px;background-color: navy;">Fill the Form</marquee>
+	<CENTER>
+<form action="{% url 'store' %}" method='POST' class='form'>
+	{% csrf_token %}
+	<div class="form-group">
+		<label for="empid">Employee ID: </label>
+	<input type="number" name="empid" id="empid" placeholder="Enter Your Employee" class="form-control" style="width: max-content;"><br>
+
+	<label for="name">Name: </label>
+	<input type="text" name="name" maxlength="30" id="name" placeholder="Enter Your Name" class="form-control" style="width: max-content;">
+	<br><br>
+	<label for="age">Age: </label>
+	<input type="number" name="age" placeholder="Enter your age" id="age" class="form-control" style="width: max-content;">
+	<br><br>
+	<label for="salary">Salary: </label>
+	<input type="number" name="salary" id="salary" placeholder="Enter Your Salary" class="form-control" style="width: max-content;">
+	<br><br>
+	<label for="desig">Designation: </label>
+	<input type="text" name="desig" id="desig" placeholder="Enter Designation" class="form-control" style="width: max-content;">
+	<br><br>
+	<label for="phno">Mobile Number: </label>
+	<input type="text" name="phno" id='phno' placeholder="Enter Your Phone Number" class="form-control" style="width: max-content;">
+	<br><br>
+	<label for="email">Email: </label>
+	<input type="email" name="email" id="email" placeholder="Enter Email ID" class="form-control" style="width: max-content;">
+	<small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+	<br><br>
+	
+
+	<label for="dept">Choose Your Department:</label>
+  <select name="dept" id="dept" class="form-control" style="width: max-content">
+  	<option value="none" selected disabled hidden> 
+          Select an Option 
+      </option> 
+    <option value="Testing">Testing</option>
+    <option value="System Administration">System Administration</option>
+    <option value="Network Administration">Network Administration</option>
+    <option valu="Development">Development</option>
+  </select> 
+</div>
+	<input type="submit" value="Store" class="btn btn-primary">
+</form>
+</CENTER>
+</body>
+</html>
